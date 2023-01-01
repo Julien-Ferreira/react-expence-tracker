@@ -21,6 +21,7 @@ const ExpensesFilter = (props) => {
         <label>Filter by year</label>
         {/* // Une liste déroulante (élément select) est créée avec plusieurs options (éléments option) */}
         <select value={props.selected} onChange={expensesFilterHandle}>
+          <option value='2023'>2023</option>
           <option value='2022'>2022</option>
           <option value='2021'>2021</option>
           <option value='2020'>2020</option>

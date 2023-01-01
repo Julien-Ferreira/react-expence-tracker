@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import ExpenseItem from './ExpenseItem';
-import './Expenses.css';
+import ExpensesList from './ExpensesList';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
+import './Expenses.css';
 
 // La composante Expenses prend en paramètre un objet props et renvoie du code JSX
 const Expenses = props => {
@@ -23,18 +23,19 @@ const Expenses = props => {
 
   // Le code JSX suivant est renvoyé par la fonction Expenses
   return (
-    <div>
+    <li>
       <Card className="expenses">
-        {/* La composante ExpensesFilter est rendue ici, avec les props selected et onChangeFilter */}
-        <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-        {/* Pour chaque élément dans le tableau items de l'objet props, une composante ExpenseItem est rendue */}
-        {filteredExpenses.map(expense => <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date} />)}
+        <div>
+          {/* La composante ExpensesFilter est rendue ici, avec les props selected et onChangeFilter */}
+          <ExpensesFilter
+            selected={filteredYear}
+            onChangeFilter={filterChangeHandler}
+          />
+          {/* Pour chaque élément dans le tableau items de l'objet props, une composante ExpenseItem est rendue */}
+          <ExpensesList items={filteredExpenses} />
+        </div>
       </Card>
-    </div>
+    </li>
   )
 };
 
