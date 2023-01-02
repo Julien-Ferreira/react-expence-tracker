@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ExpensesList from './ExpensesList';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesChart from './ExpensesChart';
 import './Expenses.css';
 
 // La composante Expenses prend en paramètre un objet props et renvoie du code JSX
@@ -31,6 +32,7 @@ const Expenses = props => {
             selected={filteredYear}
             onChangeFilter={filterChangeHandler}
           />
+          <ExpensesChart expenses={filteredExpenses} />
           {/* Pour chaque élément dans le tableau items de l'objet props, une composante ExpenseItem est rendue */}
           <ExpensesList items={filteredExpenses} />
         </div>
